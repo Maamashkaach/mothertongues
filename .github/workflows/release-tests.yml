@@ -32,6 +32,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0 # fetch all commits/branches
+      - name: Check out mothertongues-UI
+        uses: actions/checkout@v4
+        with:
+          repository: Maamashkaach/mothertongues-UI
+          ref: main
+          path: mothertongues-UI
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
