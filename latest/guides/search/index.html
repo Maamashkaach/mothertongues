@@ -1,0 +1,1111 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../prepare/">
+      
+      
+        <link rel="next" href="../../developer/vscode/">
+      
+      
+      <link rel="icon" href="../../images/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Configuring the approximate search algorithm - Mother Tongues Dictionaries Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approximate-search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<h2>Hello!</h2>
+<p>Thanks for checking out the new documentation. It's not ready yet though, so please don't expect this to work just yet. In the meantime, please head to <a href='https://docs.mothertongues.org'>https://docs.mothertongues.org</a> if you would like to see
+    the docs for the current version of MotherTongues.</p>
+
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docs.mothertongues.org" title="Mother Tongues Dictionaries Documentation" class="md-header__button md-logo" aria-label="Mother Tongues Dictionaries Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo_no_text.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mother Tongues Dictionaries Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuring the approximate search algorithm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.mothertongues.org" title="Mother Tongues Dictionaries Documentation" class="md-nav__button md-logo" aria-label="Mother Tongues Dictionaries Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo_no_text.png" alt="logo">
+
+    </a>
+    Mother Tongues Dictionaries Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nocode/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating A Dictionary (No Code Guide)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Creating A Dictionary (Advanced Developer Guide)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Creating A Dictionary (Advanced Developer Guide)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring your dictionary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building & publishing your dictionary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preparing your data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Configuring the approximate search algorithm
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Configuring the approximate search algorithm
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-approximate-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Approximate Search?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does it work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-changing-which-fields-get-searched" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index: Changing which fields get searched
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unicode Normalization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stemming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stemming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#punctuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Punctuation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-combining-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Combining Characters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding weights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-distance-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      A simple distance example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-complex-distance-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      A complex distance example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Misc Developer Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Misc Developer Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Completion Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/unittests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running Unit Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/Contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-approximate-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Approximate Search?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does it work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-changing-which-fields-get-searched" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index: Changing which fields get searched
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unicode Normalization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stemming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stemming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#punctuation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Punctuation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-combining-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Combining Characters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding weights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding weights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-distance-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      A simple distance example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-complex-distance-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      A complex distance example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="approximate-search">Approximate Search<a class="headerlink" href="#approximate-search" title="Permanent link">&para;</a></h1>
+<p><em>This guide applies for all paths (<a href="../../nocode/install/">no-code</a> and <a href="../../developer/prerequisites/">advanced developer</a>)</em></p>
+<h2 id="what-is-approximate-search">What is Approximate Search?<a class="headerlink" href="#what-is-approximate-search" title="Permanent link">&para;</a></h2>
+<p>Approximate search isn't just a <em>nice</em> feature for dictionaries of
+endangered languages - it's usually a requirement.</p>
+<p>Computers, by default, perform very narrow searches. If a dictionary user searches for 'cat', you expect an entry for 'cat'. But what if you search for 'kat' or 'kaat'? If you are learner of a language, these are honest mistakes to make. Approximate search allows <em>close</em> searches to return results.</p>
+<p>Often, it's
+learners of languages that want to use dictionaries the most, and if
+your dictionary doesn't allow approximate search, beginners might have
+a hard time accessing entries in the dictionary.</p>
+<p>Typical learner/user mistakes come from the following issues:</p>
+<ol>
+<li>Learners have a hard time hearing the difference between sounds.</li>
+<li>Learners don't often know how to spell the different sounds.</li>
+<li>Some languages make it tricky to type, even if you can hear the difference and know how to spell the word.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a href="http://roedoejet.github.io/cv/static/cv/pdfs/computel.pdf">this
+paper</a> for
+further discussion.</p>
+</div>
+<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<p>Approximate search is partially achieved by trying to 'normalize' differences between the <em>query</em> (what the user types) and the data in your dictionary. How much you 'normalize' is up to you as the creator of your dictionary - too much and your users will get confusing results, too little and your algorithm won't return enough results.</p>
+<p>All of the configuration for your search algorithm happens in the <a href="../prepare/#mtd-configuration-file">MTD Configuration</a>. You can configure the search differently for both L1 and L2 searches. The default configuration looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;L1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YourLanguage&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;L2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;l1_search_strategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weighted_levenstein&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;l2_search_strategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;liblevenstein_automata&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;l1_search_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;insertionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;deletionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;insertionAtBeginningCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;deletionAtEndCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;substitutionCosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">            </span><span class="nt">&quot;defaultSubstitutionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;l1_stemmer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;l2_stemmer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;snowball_english&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;l1_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;l2_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="err">...</span>
+</code></pre></div>
+<p>The following sections will show you different ways you can configure approximate search.</p>
+<h2 id="index-changing-which-fields-get-searched">Index: Changing which fields get searched<a class="headerlink" href="#index-changing-which-fields-get-searched" title="Permanent link">&para;</a></h2>
+<p>An index determines which fields are scanned during search.</p>
+<p>By default, the inverted index is created with terms from <code>word</code> for L1 and <code>definition</code> for L2. But you can index other fields as well. For example, if you'd like to see search results when 'cat' is in the example sentence, you might do the following:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;L1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YourLanguage&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;L2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="hll"><span class="w">        </span><span class="nt">&quot;l1_keys_to_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">            </span><span class="s2">&quot;word&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="s2">&quot;example_sentence&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="s2">&quot;my_custom_field&quot;</span>
+</span><span class="hll"><span class="w">        </span><span class="p">],</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;l2_keys_to_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">            </span><span class="s2">&quot;definition&quot;</span>
+</span><span class="hll"><span class="w">        </span><span class="p">],</span>
+</span><span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="case">Case<a class="headerlink" href="#case" title="Permanent link">&para;</a></h2>
+<p>Case refers to whether uppercase and lowercase letters are considered the same.</p>
+<p>To illustrate this, we probably (hopefully!) agree that if I type the word 'cat', I should get a result of 'cat' if it's in the dictionary. I should probably also get 'cat' as a result if I type 'Cat' or 'CAT' of 'cAt' - in other words, my search should be <a href="#case">case insensitive</a>.</p>
+<p>The default configuration file already nomralizes case, by setting <code>"lower"</code> to <code>true</code>. If you would like to change that setting, adjust the value of <code>"lower"</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="nt">&quot;l1_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example is for L1 normalization - you can configure this for your L2 langauge as well.</p>
+</div>
+<h2 id="unicode-normalization">Unicode Normalization<a class="headerlink" href="#unicode-normalization" title="Permanent link">&para;</a></h2>
+<p>Unicode normalization is necessary for normalizing differences between 'composed' and 'decomposed' codepoints. See <a href="https://towardsdatascience.com/what-on-earth-is-unicode-normalization-56c005c55ad0">this post</a> for more information!</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="nt">&quot;l1_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="hll"><span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+</span><span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+<h2 id="stemming">Stemming<a class="headerlink" href="#stemming" title="Permanent link">&para;</a></h2>
+<p>Stemming is all about normalizing words by turning them into the 'stem' (version of the word without affixes). So for example, searching for the word 'relate' would return results of 'relate', 'relates', 'relation', etc... in English. By default, we use the <a href="https://www.nltk.org/api/nltk.stem.snowball.html">English Snowball Stemmer</a> for L2 and apply no stemming for L1.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;L1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YourLanguage&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;L2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="hll"><span class="w">        </span><span class="nt">&quot;l1_stemmer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;l2_stemmer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;snowball_english&quot;</span><span class="p">,</span>
+</span><span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you would to use other stemmers (for example, if the L2 is in Spanish, Arabic, etc.) - see these documents... TBD</p>
+<h2 id="punctuation">Punctuation<a class="headerlink" href="#punctuation" title="Permanent link">&para;</a></h2>
+<p>You might want to remove all punctuation from your search results. That means, for example, that <code>sunflower</code> would be returned, even if someone searches for <code>sun-flower</code>. By default, many punctuation marks will be removed. You can change which punctuation marks will be removed by modifying the following config value:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="nt">&quot;l1_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+</span><span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+<h2 id="removing-combining-characters">Removing Combining Characters<a class="headerlink" href="#removing-combining-characters" title="Permanent link">&para;</a></h2>
+<p>Sometimes it's convenient to just remove all accents/diacritics. For example, in French, we would possibly want to normalize "e" with "è", "é", and "ê". There is a convenience configuration in mothertongues that, if set to true, will temporarily apply NFD Unicode normalization and remove all codepoints in the <a href="https://en.wikipedia.org/wiki/Combining_Diacritical_Marks">Combining Diacritical Marks</a> Unicode code block.</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="nt">&quot;l1_normalization_transducer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;lower&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;unicode_normalization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remove_punctuation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[.,/#!$%^&amp;?*&#39;;:{}=\\-_`~()]&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">            </span><span class="nt">&quot;remove_combining_characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span class="w">        </span><span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+<h2 id="adding-weights">Adding weights<a class="headerlink" href="#adding-weights" title="Permanent link">&para;</a></h2>
+<p>What about if I type 'kat' though? We might not expect a user to type 'kat' unless they are a learner of English - but, if we expect a lot of learners to be using our dictionary, that might be appropriate!</p>
+<p>The Mother Tongues approximate search algorithm works by calculating the edit distance between the query and the <a href="#which-keys-get-indexed">terms in your inverted index</a>. The edit distance is how many insertions, deletions, or subsitutions it takes to get from one string to another: <code>kat</code> and <code>cat</code> have an edit distance of <code>1.0</code> by default for example since the default cost for substitutions is <code>1.0</code>.</p>
+<p>The greater the distance, the more different the word. So a word the has a <code>1.0</code> distance is more different than a word that has a <code>0.5</code> distance. MTD gives you the option to edit distances to make search results more helpful for learners. Check out the example below!</p>
+<h3 id="a-simple-distance-example">A simple distance example<a class="headerlink" href="#a-simple-distance-example" title="Permanent link">&para;</a></h3>
+<p>Maybe we want to include information that <code>kat</code> is a bit closer to <code>cat</code> than <code>mat</code>. To do that, we will <em>weight</em> the substitution between <code>k</code> and <code>c</code> differently in our algorithm. We can do this by providing custom substitution costs:</p>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="nt">&quot;l1_search_strategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weighted_levenstein&quot;</span><span class="p">,</span>
+</span><span class="nt">&quot;l1_search_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;insertionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deletionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;insertionAtBeginningCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deletionAtEndCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;substitutionCosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nt">&quot;k&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+</span><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span>
+</span><span class="w">    </span><span class="nt">&quot;defaultSubstitutionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+<p>That way <code>k</code> and <code>c</code> get a <code>0.5</code> distance. Whereas <code>c</code> and all other letters will get the <code>1.0</code> weight specified in the <code>defaultSubstitutionCost</code> value.</p>
+<h3 id="a-complex-distance-example">A complex distance example<a class="headerlink" href="#a-complex-distance-example" title="Permanent link">&para;</a></h3>
+<p>If you would like to provide many weights, you have the option of creating a separate "weights" file to read from. Your config would look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="nt">&quot;l1_search_strategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weighted_levenstein&quot;</span><span class="p">,</span>
+</span><span class="nt">&quot;l1_search_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;insertionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deletionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;insertionAtBeginningCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deletionAtEndCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;substitutionCostsPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;filepath_to_my_weights.csv&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&quot;defaultSubstitutionCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span class="hll"><span class="p">},</span>
+</span><span class="hll"><span class="err">...</span>
+</span></code></pre></div>
+<p>A sample `weights.csv`` file might be:</p>
+<div class="highlight"><pre><span></span><code>c,k,0.5
+c,s,0.75
+c,t,0.9
+</code></pre></div>
+<p>The <em>weights</em> file can be one of several formats</p>
+<ul>
+<li>.json</li>
+<li>.xslx</li>
+<li>.csv using a delimiter of <code>,</code></li>
+<li>.psv using a delimter of <code>|</code></li>
+<li>.tsv using a tab delimiter</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This will <strong>only</strong> work when our search strategy is set to "weighted_levenstein". The other search strategy is faster, but does not allow for weighted edit distance calculations.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<h2 id="__comments">Comments</h2>
+<!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js" data-repo="MotherTongues/mothertongues" data-repo-id="R_kgDOImE8BQ" data-category="Q&A" data-category-id="DIC_kwDOImE8Bc4CY9kB" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="1"
+    data-input-position="bottom" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage({
+                        giscus: {
+                            setConfig: {
+                                theme
+                            }
+                        }
+                    },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../prepare/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Preparing your data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Preparing your data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../developer/vscode/" class="md-footer__link md-footer__link--next" aria-label="Next: Code Completion Tools">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Code Completion Tools
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "announce.dismiss", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
