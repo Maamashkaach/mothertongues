@@ -1,7 +1,10 @@
 name: Run full matrix Tests before Releases
 on:
   pull_request:
-    branches: [ release ]
+    branches:
+      - release
+      - development
+
 jobs:
   pre-release-matrix-test:
     strategy:
@@ -36,7 +39,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Maamashkaach/mothertongues-UI
-          ref: main
+          ref: ${{ github.ref == 'refs/heads/development' && 'development' || 'main' }}
           path: mothertongues-UI
       - name: Set up Python
         uses: actions/setup-python@v4
