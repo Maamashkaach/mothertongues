@@ -1,4 +1,4 @@
 [submodule "mothertongues-UI"]
 	path = mothertongues-UI
 	url = https://github.com/Maamashkaach/mothertongues-UI.git
-	branch = main
+	branch = development
